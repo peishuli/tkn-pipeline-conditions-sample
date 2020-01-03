@@ -1,0 +1,2 @@
+# Sample Tekton Pipeline
+A sample tekton pipeline that demonstrates the use of the Condition object. The pipeline contains two tasks - `hello-task` and `testing-task`. Whether to execute the second task (testing-task) is determined by the condition, which is based on an input parameter called `runTest`. If its value is 'yes' the task gets executed, otherwise it will be skipped.
