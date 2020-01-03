@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Condition
+metadata:
+  name: testing-condition
+spec:
+  params:
+    - name: "runTest"
+  check:
+    image: alpine
+    command: ["/bin/sh"]
+    args: ['-c', 'test $(params.runTest) = yes']
+    

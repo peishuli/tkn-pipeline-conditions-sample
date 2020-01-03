@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: condition-pipeline
+spec:
+  params:
+    - name: "runTest"
+      type: string
+      description: A flag that is used to determine whether to exectue the testing-task
+      default: "no"
+  tasks:
+    - name: testing
+      taskRef:
+        name: testing-task
+      conditions:
+      - conditionRef: testing-condition
+        params:
+          - name: "runTest"
+            value: $(params.runTest)
+    - name: hello
+      taskRef:
+        name: hello-task

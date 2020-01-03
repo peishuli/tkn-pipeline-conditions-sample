@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  generateName: condition-pipelinerun-
+spec:
+  pipelineRef:
+    name: condition-pipeline
+  params:
+    - name: "runTest"
+      value: "no" #"yes"  
+  

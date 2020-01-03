@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: testing-task
+spec:
+  steps:
+    - name: echo
+      image: ubuntu
+      command:
+        - echo
+      args:
+        - "Running tests..."
